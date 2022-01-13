@@ -1,0 +1,9 @@
+web_sites:
+  - vhost1
+  - vhost2
+
+local_resolving:
+  - domain: vhost1.lab
+    ip:  "{{ hostvars[inventory_hostname].ansible_host }}"
+  - domain: vhost2.lab
+    ip:  "{{ hostvars[inventory_hostname].ansible_host }}"

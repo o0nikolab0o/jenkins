@@ -1,0 +1,20 @@
+---
+- name: Add Nginx Repository
+  yum_repository:
+    name: nginx
+    description: Nginx Repository
+    baseurl: http://nginx.org/packages/centos/7/$basearch/
+    gpgcheck: no
+    enabled: yes
+
+- name: Install Nginx Package
+  yum:
+    name: nginx
+    state: latest
+    update_cache: yes
+
+- name: Ensure Nginx is Started
+  systemd:
+    name: nginx
+    state: started
+    enabled: yes
