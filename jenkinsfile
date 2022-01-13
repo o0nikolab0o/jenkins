@@ -1,0 +1,12 @@
+node{
+    stage('Clone') {
+    checkput scm
+    }
+    stage('Ansible') {
+      ansiblePlaybook (
+          colorized: true,
+          playbook: 'playbook/playbook.yml',
+          inventory: 'inventory/hosts.yml'
+      )
+    }
+}
