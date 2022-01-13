@@ -1,0 +1,2 @@
+---
+local_resolv: "{{ local_resolving }}"

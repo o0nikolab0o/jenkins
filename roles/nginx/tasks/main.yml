@@ -1,0 +1,7 @@
+---
+- import_tasks: install_nginx.yml
+
+- import_tasks: setup_application.yml
+
+- import_tasks: setup_virtualhosts.yml
+

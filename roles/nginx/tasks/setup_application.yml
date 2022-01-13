@@ -1,0 +1,23 @@
+---
+- name: Create Documents Roots
+  file:
+    path: "/var/www/{{ dir }}/html"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  loop: "{{ root_directory }}"
+  loop_control:
+    loop_var: dir
+
+- name: Create Applications contents
+  template:
+    src: index.html.j2
+    dest: "/var/www/{{ app }}/html/index.html"
+    owner: root
+    group: root
+    mode: '0644'
+  loop: "{{ root_directory }}"
+  loop_control:
+    loop_var: app
+

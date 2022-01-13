@@ -1,0 +1,13 @@
+---
+- name: Deploy Nginx Virtualhosts
+  hosts: webservers
+  gather_facts: true
+
+  roles:
+    - role: nginx
+
+    - role: local_resolv
+      become: yes
+      become_user: root
+      delegate_to: localhost
+      run_once: true
